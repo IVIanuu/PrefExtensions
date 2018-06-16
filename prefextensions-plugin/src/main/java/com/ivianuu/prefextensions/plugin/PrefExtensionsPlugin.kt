@@ -73,14 +73,18 @@ class PrefExtensionsPlugin : Plugin<Project> {
 
                     xmlFiles
                         .map {
-                            val name = CaseFormat.LOWER_UNDERSCORE
+                            val fileName = CaseFormat.LOWER_UNDERSCORE
                                 .to(CaseFormat.UPPER_CAMEL,
                                     it.name.replace(".xml", "")) + "Ext"
 
+                            val packageName =
+                                "com.ivianuu.prefextensions.${it.name.replace(".xml", "")}"
+
                             PreferenceExtensionDescriptor(
-                                "com.ivianuu.prefextensions.${it.name.replace(".xml", "")}",
-                                name,
-                                parsePreferenceXml(it)
+                                packageName,
+                                fileName,
+                                parsePreferenceXml(it),
+                                false
                             )
                         }
                         .filter { it.preferences.isNotEmpty() }

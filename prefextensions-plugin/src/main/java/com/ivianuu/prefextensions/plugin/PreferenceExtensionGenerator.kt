@@ -12,8 +12,10 @@ class PreferenceExtensionGenerator(private val descriptor: PreferenceExtensionDe
             FileSpec.builder(descriptor.packageName, descriptor.fileName)
 
         descriptor.preferences.forEach {
-            file.addProperty(preferenceProperty(it, PREFERENCE_CONTAINER))
             file.addProperty(preferenceProperty(it, PREFERENCE_FRAGMENT))
+            if (descriptor.generatePrefContainer) {
+                file.addProperty(preferenceProperty(it, PREFERENCE_CONTAINER))
+            }
         }
 
         return file.build()
