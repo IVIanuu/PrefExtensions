@@ -21,7 +21,7 @@ apply plugin: 'maven-publish'
 
 group='com.github.ivianuu'
 
-def artifactId = 'prefextensions-plugin'
+def artifactId = 'prefextensions-gradle-plugin'
 def groupId = 'com.ivianuu.prefextensions'
 
 sourceCompatibility = "1.8"

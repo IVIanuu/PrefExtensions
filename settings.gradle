@@ -14,4 +14,4 @@
  * limitations under the License.
  */
 
-include ':sample', ':prefextensions', ':prefextensions-plugin'
+include ':sample', ':prefextensions', ':prefextensions-gradle-plugin'
